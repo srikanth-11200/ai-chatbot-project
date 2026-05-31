@@ -17,11 +17,17 @@ const client = new OpenAI({
 
 app.post("/chat", async (req, res) => {
   try {
-    const { message } = req.body;
-
+    const { message, messages } = req.body;
     const completion = await client.chat.completions.create({
       model: "llama-3.1-8b-instant",
       messages: [
+        {
+          role: "system",
+          content:
+            "You are a helpful AI assistant. Always format responses using proper markdown. Use headings, bullet points, bold text, and code blocks correctly.",
+        },
+        ...messages,
+
         {
           role: "user",
           content: message,
