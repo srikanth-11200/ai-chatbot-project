@@ -20,6 +20,7 @@ body {
   flex-direction: column;
   padding: 15px;
   overflow: hidden;
+   height: 100dvh;
 }
 
 .chat-section h1 {
