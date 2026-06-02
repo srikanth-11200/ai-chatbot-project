@@ -81,7 +81,7 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/chat", {
+      const res = await axios.post( "https://ai-chatbot-project-backend.onrender.com/chat", {
         message,
         messages: currentChat.messages,
       });
