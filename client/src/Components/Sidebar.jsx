@@ -1,8 +1,15 @@
-import '../Components/Sidebar.css';
+import "../Components/Sidebar.css";
 
-function Sidebar({ chats, currentChatId, setCurrentChatId, createNewChat, setMessage }) {
+function Sidebar({
+  chats,
+  currentChatId,
+  setCurrentChatId,
+  createNewChat,
+  setMessage,
+  isSidebarOpen,
+}) {
   return (
-    <div className="sidebar">
+    <div className={isSidebarOpen ? "sidebar sidebar-open" : "sidebar"}>
       <button className="new-chat-btn" onClick={createNewChat}>
         + New Chat
       </button>

@@ -7,6 +7,7 @@ import Sidebar from "./Components/Sidebar";
 
 function App() {
   const [message, setMessage] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [chats, setChats] = useState(() => {
     const savedChats = localStorage.getItem("chats");
 
@@ -112,17 +113,33 @@ function App() {
 
   return (
     <div className="app-layout">
+      {isSidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
       <Sidebar
         chats={chats}
         currentChatId={currentChatId}
         setCurrentChatId={setCurrentChatId}
         createNewChat={createNewChat}
         setMessage={setMessage}
+        isSidebarOpen={isSidebarOpen}
       />
 
-      <div className="chat-section">
-        <h1>AI Chatbot</h1>
+      <div className="mobile-header">
+        <button
+          className="hamburger-btn"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          ☰
+        </button>
 
+        <h2>AI Assistant</h2>
+      </div>
+
+      <div className="chat-section">
         <div className="messages-container">
           {currentChat?.messages.map((msg, index) => (
             <MessageBubble key={index} msg={msg} />

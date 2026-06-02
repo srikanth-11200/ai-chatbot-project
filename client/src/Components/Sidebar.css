@@ -47,3 +47,25 @@
 .chat-list {
   font-size: 16px;
 }
+
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 280px;
+    height: 100vh;
+
+    z-index: 1000;
+
+    transition: left 0.3s ease;
+  }
+
+  .sidebar-open {
+    left: 0;
+  }
+
+}
