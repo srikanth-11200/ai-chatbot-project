@@ -140,6 +140,7 @@ function App() {
       </div>
 
       <div className="chat-section">
+        <h2>AI Assistant</h2>
         <div className="messages-container">
           {currentChat?.messages.map((msg, index) => (
             <MessageBubble key={index} msg={msg} />
